@@ -73,9 +73,9 @@
 <body>
     <h1>🚀 Auto-YouTube Uploader with AI</h1>
     
-    <p>Welcome to the future of content creation! This tool combines the power of <span class="highlight">AI-generated metadata</span> with seamless <span class="highlight">automatic YouTube uploading</span>. Now, even non-technical creators can have their videos uploaded with smart titles, descriptions, and hashtags — all in one click.</p>
+<p>Welcome to the future of content creation! This tool combines the power of <span class="highlight">AI-generated metadata</span> with seamless <span class="highlight">automatic YouTube uploading</span>. Now, even non-technical creators can have their videos uploaded with smart titles, descriptions, and hashtags — all in one click.</p>
     
-    <h2>✨ Features</h2>
+<h2>✨ Features</h2>
     <div class="feature">
         <h3>AI-Generated Titles</h3>
         <p>Get catchy, SEO-friendly titles created automatically, so your videos stand out and attract more viewers.</p>
@@ -93,7 +93,7 @@
         <p>No more manual uploading! Videos are uploaded directly to your YouTube channel with the AI-generated metadata applied.</p>
     </div>
     
-    <h2>⚡ How It Works</h2>
+<h2>⚡ How It Works</h2>
     <p>This system has been designed for simplicity and speed:</p>
     <ul>
         <li>Provide your video file (MP4 or similar).</li>
@@ -102,7 +102,7 @@
         <li>Upload happens automatically, displaying progress and final video ID.</li>
     </ul>
     
-    <h2>🛠 No Technical Knowledge Needed</h2>
+<h2>🛠 No Technical Knowledge Needed</h2>
     <p>This is a **plug-and-play solution**:</p>
     <ul>
         <li>No command-line expertise required.</li>
@@ -110,11 +110,11 @@
         <li>Fully automated workflow: just select a video and press upload.</li>
     </ul>
     
-    <div class="tip">
+<div class="tip">
         <strong>Pro Tip:</strong> Future versions will integrate cloud uploads, so no local files are required at all — you could record on your phone and upload instantly via AI!
     </div>
     
-    <h2>🌟 Future Vision</h2>
+<h2>🌟 Future Vision</h2>
     <p>Imagine a platform where creators can:</p>
     <ul>
         <li>Generate AI-powered content metadata for every platform: YouTube, Instagram, TikTok, and more.</li>
@@ -123,18 +123,18 @@
         <li>Empower youth creators globally to automate tedious work and focus on creative storytelling.</li>
     </ul>
     
-    <h2>🚀 Quick Start for Testing (Developers & Early Adopters)</h2>
+<h2>🚀 Quick Start for Testing (Developers & Early Adopters)</h2>
     <p>1. Install Python 3.10+ and dependencies:</p>
     <pre><code>pip install npmai langchain_core pydantic google-api-python-client google-auth-oauthlib</code></pre>
     <p>2. Place your video file in the same folder.</p>
     <p>3. Make sure you have <code>client_secrets.json</code> from Google Cloud.</p>
     <p>4. Run the script: <code>python auto_youtube_upload.py</code></p>
     
-    <div class="tip">
+<div class="tip">
         ⚠️ Note: On restricted networks (like corporate PCs), the YouTube API may be blocked. For full functionality, run on a network that allows Google API access.
     </div>
     
-    <h2>💡 Why This Tool Rocks</h2>
+<h2>💡 Why This Tool Rocks</h2>
     <ul>
         <li>Save hours of manual uploading and research.</li>
         <li>Boost your video’s chance to go viral.</li>
@@ -142,6 +142,6 @@
         <li>Scalable: can handle one video or hundreds automatically.</li>
     </ul>
     
-    <p class="footer">✨ Join the AI-driven future of content creation with Auto-YouTube Uploader. Let your videos fly higher, faster, and smarter! ✨</p>
+<p class="footer">✨ Join the AI-driven future of content creation with Auto-YouTube Uploader. Let your videos fly higher, faster, and smarter! ✨</p>
 </body>
 </html>
