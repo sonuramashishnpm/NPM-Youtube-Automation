@@ -1,4 +1,3 @@
-
 from npmai import Gemini
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
@@ -7,9 +6,24 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
+from moviepy.editor import VideoFileClip
+import whisper
 import json
 import time
 import os
+import io
+
+file=input("Enter your video file path")
+thumbnail=input("Enter your thumbnail file path")
+
+clip=VideoFileClip(file)
+
+audio=clip.audio
+audio.write_audiofile("temp.wav")
+
+model=whisper.load_model("base")
+result=model.transcribe("temp.wav")
+text=result["text"]
 
 llm = Gemini()
 
@@ -29,10 +43,10 @@ titlep = PromptTemplate(
 )
 
 descriptionr = descriptionp.format(
-    video_d="Personal video about youth politics by Sonu Kumar Viral Boy Bihar."
+    video_d=text
 )
 hashtagsr = hashtagsp.format(
-    video_c="Youth politics video by Sonu Kumar Viral Boy Bihar."
+    video_c=text
 )
 titler = titlep.format(
     t="t"
@@ -65,7 +79,7 @@ def get_youtube_service():
 
     return build("youtube", "v3", credentials=creds)
 
-def upload_video(file_path, description, tags, title):
+def upload_video(file_path, description, tags, title,thumbnail_path):
     youtube = get_youtube_service()
 
     body = {
@@ -85,6 +99,7 @@ def upload_video(file_path, description, tags, title):
         body=body,
         media_body=media
     )
+    
 
     print("\nVideo is getting uploaded...")
 
@@ -96,13 +111,16 @@ def upload_video(file_path, description, tags, title):
 
     print("\nUpload Complete!")
     print("Video ID:", response["id"])
-
-
-video_file = "video.mp4"
+    
+    thumbnail=youtube.thumbnails.set(
+        videoId=response["id"],
+        media_body=thumbnail_path
+        ).execute()
 
 upload_video(
-    file_path=video_file,
+    file_path=file,
     description=resultd,
-    tags=resulth,
-    title=resultt
+    tags=[resulth],
+    title=resultt,
+    thumbnail_path=thumbnail
 )
