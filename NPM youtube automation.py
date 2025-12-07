@@ -1,4 +1,4 @@
-from npmai import Gemini
+from npmai import Gemini, ChatGPT
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -13,6 +13,7 @@ import time
 import os
 import io
 
+llms=input("Enter A.I from which you want to use  so select and write exact from here:-{'ChatGPT','Gemini'}:)
 file=input("Enter your video file path")
 thumbnail=input("Enter your thumbnail file path")
 
@@ -25,7 +26,7 @@ model=whisper.load_model("base")
 result=model.transcribe("temp.wav")
 text=result["text"]
 
-llm = Gemini()
+llm = globals()[llms]()
 
 descriptionp = PromptTemplate(
     input_variables=["video_d"],
