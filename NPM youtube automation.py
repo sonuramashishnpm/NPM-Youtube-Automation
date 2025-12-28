@@ -1,4 +1,4 @@
-from npmai import Gemini, ChatGPT
+from npmai import Ollama
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -26,7 +26,7 @@ model=whisper.load_model("base")
 result=model.transcribe("temp.wav")
 text=result["text"]
 
-llm = globals()[llms]()
+llm = Ollama(model="llama3.2",temperature="0.8")
 
 descriptionp = PromptTemplate(
     input_variables=["video_d"],
@@ -53,11 +53,11 @@ titler = titlep.format(
     t="t"
 )
 
-resultd = llm.invoke(prompts=descriptionr)
+resultd = llm.invoke(descriptionr)
 time.sleep(5)
-resulth = llm.invoke(prompts=hashtagsr)
+resulth = llm.invoke(hashtagsr)
 time.sleep(3)
-resultt = llm.invoke(prompts=titler)
+resultt = llm.invoke(titler)
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 
